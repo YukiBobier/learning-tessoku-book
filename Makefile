@@ -1,4 +1,4 @@
-.PHONY: init_module
+.PHONY: init_module commit_changes
 
 init_module:
 ifndef MODULE
@@ -11,3 +11,10 @@ endif
 	go work use $(MODULE)
 	git add $(MODULE) go.work
 	git commit -m "build: init $(MODULE)"
+
+commit_solution:
+ifndef MODULE
+	$(error MODULE is not set)
+endif
+	git add $(MODULE)
+	git commit -m "feat: solve $(MODULE)"
