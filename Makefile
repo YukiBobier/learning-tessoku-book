@@ -18,3 +18,10 @@ ifndef MODULE
 endif
 	git add $(MODULE)
 	git commit -m "feat: solve $(MODULE)"
+
+commit_refactoring:
+ifndef MODULE
+	$(error MODULE is not set)
+endif
+	git add $(MODULE)
+	git commit -m "refactor: refactor $(MODULE)"
