@@ -29,17 +29,24 @@ func solve(input io.Reader, output io.Writer) {
 	}
 
 	// process
-	sumOfAttendees := make([]int, d)
+	differences := make([]int, d)
 	for _, lr := range lrs {
 		startIdx := lr.l - 1
 		endIdx := lr.r - 1
-		for i := startIdx; i <= endIdx; i++ {
-			sumOfAttendees[i]++
+		differences[startIdx]++
+		if endIdx+1 < d {
+			differences[endIdx+1]--
 		}
 	}
 
+	comulativeSumOfDifferences := make([]int, d)
+	comulativeSumOfDifferences[0] = differences[0]
+	for i := 1; i < d; i++ {
+		comulativeSumOfDifferences[i] = comulativeSumOfDifferences[i-1] + differences[i]
+	}
+
 	// writing output
-	for _, sum := range sumOfAttendees {
+	for _, sum := range comulativeSumOfDifferences {
 		_, _ = fmt.Fprintf(output, "%d\n", sum)
 	}
 }
