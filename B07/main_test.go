@@ -12,9 +12,26 @@ func TestSolve(t *testing.T) {
 		want  string
 	}{
 		{
-			input: `2
+			input: `10
+7
+0 3
+2 4
+1 3
+0 3
+5 6
+5 6
+5 6
 `,
-			want: `4
+			want: `2
+3
+4
+1
+0
+3
+0
+0
+0
+0
 `,
 		},
 	}
