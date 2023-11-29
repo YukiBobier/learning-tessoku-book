@@ -1,4 +1,4 @@
-.PHONY: init_module commit_changes
+.PHONY: init_module commit_solution commit_refactoring
 
 init_module:
 ifndef MODULE
